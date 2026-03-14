@@ -6,7 +6,7 @@ import KetQua from "./components/KetQua"
 import TaiKhoan from "./components/TaiKhoan"
 /*import UserList from "./components/UserList"
 */
-import Dangnhap from "./components/Dangnhap"
+import Dangnhap from "./components/DangNhap"
 import LamBai from "./components/LamBai"
 import NopBai from "./components/NopBai"
 function App(){
