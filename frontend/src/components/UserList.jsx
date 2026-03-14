@@ -3,19 +3,16 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const UserList = () => {
-   
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
 
     
-   const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com/api';
+    const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com';
 
     useEffect(() => {
-      
         const fetchUsers = async () => {
             try {
                 const response = await axios.get(`${API_BASE_URL}/users`);
-                
                 setUsers(response.data.data); 
                 setLoading(false);
             } catch (error) {
@@ -51,10 +48,10 @@ const UserList = () => {
                                 users.map(user => (
                                     <tr key={user.uid}>
                                         <td>{user.uid}</td>
-                                        
-                                        <td><Link to={`/users/${user.uid}`} >
-                                            {user.studentid}
-                                        </Link>
+                                        <td>
+                                            <Link to={`/users/${user.uid}`} >
+                                                {user.studentid}
+                                            </Link>
                                         </td>
                                         <td>{user.last_name}</td>
                                         <td>{user.first_name}</td>
