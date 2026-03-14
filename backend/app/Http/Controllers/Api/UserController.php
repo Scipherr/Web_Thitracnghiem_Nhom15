@@ -24,7 +24,7 @@ class UserController extends Controller
     public function show($id)
     {
         
-       $user = SavsoftUser::where('studentid', $id)->first();
+      $user = SavsoftUser::find($id);
 
         if (!$user) {
             return response()->json([

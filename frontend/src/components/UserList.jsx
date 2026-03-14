@@ -52,9 +52,10 @@ const UserList = () => {
                                     <tr key={user.uid}>
                                         <td>{user.uid}</td>
                                         
-                                        <td><Link to={`/users/${user.studentid}`} >
+                                        <td><Link to={`/users/${user.uid}`} >
                                             {user.studentid}
-                                        </Link></td>
+                                        </Link>
+                                        </td>
                                         <td>{user.last_name}</td>
                                         <td>{user.first_name}</td>
                                         <td>{user.email}</td>
