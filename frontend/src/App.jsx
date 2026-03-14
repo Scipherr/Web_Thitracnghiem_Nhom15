@@ -15,7 +15,7 @@ return(
 
 <Routes>
 
-<Route path="/" element={<Dangnhap />} />
+<Route path="/" element={<DangNhap />} />
 
 <Route path="/trangchu" element={<TrangChu />} />
 
