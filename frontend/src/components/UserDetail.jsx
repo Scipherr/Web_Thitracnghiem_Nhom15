@@ -10,7 +10,7 @@ const UserDetail = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com';
+    const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com/api';
 
     useEffect(() => {
         const fetchUser = async () => {
