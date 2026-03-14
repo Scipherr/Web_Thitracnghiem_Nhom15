@@ -3,17 +3,19 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const UserDetail = () => {
+   
     const { id } = useParams(); 
+    
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    
-    const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com';
+    const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com/api';
 
     useEffect(() => {
         const fetchUser = async () => {
             try {
+                
                 const response = await axios.get(`${API_BASE_URL}/users/${id}`);
                 setUser(response.data.data);
                 setLoading(false);
@@ -36,7 +38,7 @@ const UserDetail = () => {
                 <div className="col-md-6">
                     <div className="card shadow">
                         <div className="card-header bg-primary text-white">
-                            <h4 className="mb-0">Chi tiết sinh viên: {user.studentid}</h4>
+                            <h4 className="mb-0">Chi tiet sinh viên: {user.studentid}</h4>
                         </div>
                         <div className="card-body">
                             <h5 className="card-title text-success">{user.last_name} {user.first_name}</h5>
@@ -45,7 +47,7 @@ const UserDetail = () => {
                             <p className="card-text"><strong>Mã Khoa:</strong> {user.facultyid}</p>
                             <p className="card-text"><strong>Mã Lớp:</strong> {user.classid}</p>
                             
-                            <Link to="/users" className="btn btn-outline-primary mt-3">
+                            <Link to="/users" >
                                 ← Quay lại danh sách
                             </Link>
                         </div>
