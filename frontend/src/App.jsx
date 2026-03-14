@@ -8,6 +8,7 @@ import DangNhap from "./components/DangNhap";
 import LamBai from "./components/LamBai";
 import NopBai from "./components/NopBai";
 import UserList from './components/UserList';
+import UserDetail from './components/UserDetail';
 function App() {
   return (
     <Routes>
@@ -25,6 +26,7 @@ function App() {
       <Route path="/lambai" element={<LamBai />} />
 
       <Route path="/nopbai" element={<NopBai />} />
+      <Route path="/users/:id" element={<UserDetail />} />
     </Routes>
   );
 }
