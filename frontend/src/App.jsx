@@ -1,34 +1,38 @@
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import UserList from './components/UserList';
-import UserDetail from './components/UserDetail';
+import { Routes, Route } from "react-router-dom"
 
-function App() {
-  return (
-    <div>
-    
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <Link className="navbar-brand" to="/"></Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/users">Danh sách người dùng</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+import TrangChu from "./components/TrangChu"
+import DeThi from "./components/DeThi"
+import KetQua from "./components/KetQua"
+import TaiKhoan from "./components/TaiKhoan"
+/*import UserList from "./components/UserList"
+*/
+import Dangnhap from "./components/Dangnhap"
+import LamBai from "./components/LamBai"
+import NopBai from "./components/NopBai"
+function App(){
 
-     
-      <Routes>
-        <Route path="/" element={<h2 className="text-center mt-5">Trang chủ</h2>} />
-       
-        <Route path="/users" element={<UserList />} />
-        <Route path="/users/:id" element={<UserDetail />} />
-      </Routes>
-    </div>
-  );
+return(
+
+<Routes>
+
+<Route path="/" element={<Dangnhap />} />
+
+<Route path="/trangchu" element={<TrangChu />} />
+
+<Route path="/dethi" element={<DeThi />} />
+
+<Route path="/ketqua" element={<KetQua />} />
+
+<Route path="/taikhoan" element={<TaiKhoan />} />
+
+{/* <Route path="/userlist" element={<UserList />} /> */}
+<Route path="/lambai" element={<LamBai />} />
+
+<Route path="/nopbai" element={<NopBai/>}/>
+</Routes>
+
+)
+
 }
 
-export default App;
+export default App
