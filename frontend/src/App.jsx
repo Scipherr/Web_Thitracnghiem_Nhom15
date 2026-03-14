@@ -7,27 +7,12 @@ import TaiKhoan from "./components/TaiKhoan";
 import DangNhap from "./components/DangNhap";
 import LamBai from "./components/LamBai";
 import NopBai from "./components/NopBai";
-
+import UserList from './components/UserList';
 function App() {
   return (
-
-    <div>
-    
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <Link className="navbar-brand" to="/"></Link>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/users">Danh sách người dùnga</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
     <Routes>
       <Route path="/" element={<DangNhap />} />
+      <Route path="/users" element={<UserList />} />
 
       <Route path="/trangchu" element={<TrangChu />} />
 
@@ -42,6 +27,6 @@ function App() {
       <Route path="/nopbai" element={<NopBai />} />
     </Routes>
   );
-} 
+}
 
 export default App;
