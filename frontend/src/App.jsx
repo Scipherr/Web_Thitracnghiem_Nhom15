@@ -13,7 +13,7 @@ function App() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/users">Danh sách người dùng</Link>
+                <Link className="nav-link" to="/users">Danh sách người dùnga</Link>
               </li>
             </ul>
           </div>
