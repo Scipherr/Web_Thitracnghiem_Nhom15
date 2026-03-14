@@ -20,7 +20,7 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        'https://cachieuthu2.netlify.app', 
+        'https://ca22chieuthu2nhom15.netlify.app', 
         'http://localhost:5173', // local host.
     ],
 
