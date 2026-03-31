@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
+import Index from "./components/user/FEuser/Index";
 import TrangChu from "./components/user/FEuser/TrangChu";
 import DeThi from "./components/user/FEuser/DeThi";
 import KetQua from "./components/user/FEuser/KetQua";
@@ -7,26 +8,36 @@ import TaiKhoan from "./components/user/FEuser/TaiKhoan";
 import DangNhap from "./components/user/FEuser/DangNhap";
 import LamBai from "./components/user/FEuser/LamBai";
 import NopBai from "./components/user/FEuser/NopBai";
-import UserList from './components/UserList';
-import UserDetail from './components/UserDetail';
+
+import UserList from "./components/UserList";
+import UserDetail from "./components/UserDetail";
+
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<DangNhap />} />
-      <Route path="/users" element={<UserList />} />
 
+      {/* Landing Page */}
+      <Route path="/" element={<Index />} />
+
+      {/* Login */}
+      <Route path="/dangnhap" element={<DangNhap />} />
+
+      {/* Trang chính sau khi login */}
       <Route path="/trangchu" element={<TrangChu />} />
 
+      {/* Thi */}
       <Route path="/dethi" element={<DeThi />} />
-
+      <Route path="/lambai" element={<LamBai />} />
+      <Route path="/nopbai" element={<NopBai />} />
       <Route path="/ketqua" element={<KetQua />} />
 
+      {/* Tài khoản */}
       <Route path="/taikhoan" element={<TaiKhoan />} />
 
-      <Route path="/lambai" element={<LamBai />} />
-
-      <Route path="/nopbai" element={<NopBai />} />
+      {/* Test API */}
+      <Route path="/users" element={<UserList />} />
       <Route path="/users/:id" element={<UserDetail />} />
+
     </Routes>
   );
 }
