@@ -4,43 +4,61 @@ function NavbarUser() {
 
 return (
 
-<div style={{border:"1px solid #ccc", background:"#f5f5f5"}}>
+<nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow">
 
-<div style={{display:"flex"}}>
+<div className="container">
 
-<Link to="/trangchu" style={style}>
+<Link className="navbar-brand fw-bold" to="/trangchu">
 Phòng CTSV STU
 </Link>
 
-<Link to="/dethi" style={style}>
+<button 
+className="navbar-toggler" 
+type="button" 
+data-bs-toggle="collapse" 
+data-bs-target="#navbarNav"
+>
+<span className="navbar-toggler-icon"></span>
+</button>
+
+<div className="collapse navbar-collapse" id="navbarNav">
+
+<ul className="navbar-nav ms-auto">
+
+<li className="nav-item">
+<Link className="nav-link" to="/trangchu">
+Trang chủ
+</Link>
+</li>
+
+<li className="nav-item">
+<Link className="nav-link" to="/dethi">
 Đề thi
 </Link>
+</li>
 
-<Link to="/ketqua" style={style}>
+<li className="nav-item">
+<Link className="nav-link" to="/ketqua">
 Kết quả
 </Link>
+</li>
 
-<Link to="/taikhoan" style={style}>
+<li className="nav-item">
+<Link className="nav-link" to="/taikhoan">
 Tài khoản
 </Link>
+</li>
 
-{/* <Link to="/userlist" style={style}>
-Người dùng
-</Link> */}
+</ul>
+
+</div>
 
 </div>
 
-</div>
+</nav>
 
 )
 
-}
-
-const style = {
-padding:"12px 20px",
-borderRight:"1px solid #ccc",
-textDecoration:"none",
-color:"#007bff"
 }
 
 export default NavbarUser

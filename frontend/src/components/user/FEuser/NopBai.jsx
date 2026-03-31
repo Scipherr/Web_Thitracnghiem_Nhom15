@@ -1,6 +1,12 @@
 import NavbarUser from "./NavbarUser"
+import { useLocation, useNavigate } from "react-router-dom"
 
 function NopBai(){
+
+const location = useLocation()
+const navigate = useNavigate()
+
+const { score, total } = location.state || {}
 
 return(
 
@@ -8,30 +14,24 @@ return(
 
 <NavbarUser/>
 
-<div style={{padding:"40px"}}>
+<div className="container mt-4">
 
-<table style={{width:"600px",border:"1px solid #999"}}>
+<div className="card shadow rounded-4 p-4 text-center">
 
-<tr>
-<td style={td}>MSSV</td>
-<td style={td}>DH5220000000</td>
-</tr>
+<h4 className="text-success">Nộp bài thành công!</h4>
 
-<tr>
-<td style={td}>Tên bài thi</td>
-<td style={td}>Bài thu hoạch Tuần SHCD - SV giữa khóa năm học 2025-2026</td>
-</tr>
+<p><b>MSSV:</b> DH5220000000</p>
+<p><b>Tên bài thi:</b> Demo</p>
+<p><b>Số câu đúng:</b> {score}/{total}</p>
 
-<tr>
-<td style={td}>Thời gian hoàn thành</td>
-<td style={td}>00:00:05 01/11/2025</td>
-</tr>
+<button 
+className="btn btn-primary rounded-pill px-4 mt-3"
+onClick={()=>navigate("/ketqua",{state:{score,total}})}
+>
+Xem kết quả
+</button>
 
-</table>
-
-<br/>
-
-<h3>Nộp bài thành công!</h3>
+</div>
 
 </div>
 
@@ -39,11 +39,6 @@ return(
 
 )
 
-}
-
-const td={
-border:"1px solid #999",
-padding:"10px"
 }
 
 export default NopBai

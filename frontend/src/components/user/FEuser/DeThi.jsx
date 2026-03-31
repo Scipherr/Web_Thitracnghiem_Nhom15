@@ -68,19 +68,22 @@ Demo
 
 const card = {
 width:"280px",
-border:"1px solid #777",
-textAlign:"center"
+borderRadius:"20px",
+overflow:"hidden",
+boxShadow:"0 4px 10px rgba(0,0,0,0.1)",
+background:"white"
 }
 
 const header = {
 background:"#b8c79c",
-padding:"10px",
-fontWeight:"500"
+padding:"12px",
+fontWeight:"500",
+textAlign:"center"
 }
 
 const row = {
-borderTop:"1px solid #777",
-padding:"8px"
+borderTop:"1px solid #eee",
+padding:"10px"
 }
 
 const btn = {
@@ -88,8 +91,9 @@ width:"100%",
 background:"#7aa33b",
 color:"white",
 border:"none",
-padding:"10px",
-cursor:"pointer"
+padding:"12px",
+cursor:"pointer",
+borderRadius:"0 0 20px 20px"
 }
 
 export default DeThi

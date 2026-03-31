@@ -5,14 +5,38 @@ import { useState } from "react"
 function LamBai(){
 
 const navigate = useNavigate()
-const [selectedAnswer, setSelectedAnswer] = useState(null)
 
-const nopBai = () =>{
-navigate("/nopbai")
+const questions = [
+  {
+    id: 1,
+    content: "STU là viết tắt của gì?",
+    answers: ["Saigon Technology University", "SaiGon Uni", "Student University", "None"],
+  }
+]
+
+const [selectedAnswer, setSelectedAnswer] = useState({})
+
+const handleSelect = (qId, index) => {
+  setSelectedAnswer({
+    ...selectedAnswer,
+    [qId]: index
+  })
 }
 
-const handleAnswerClick = (answer) => {
-setSelectedAnswer(answer)
+const nopBai = () => {
+
+  const correctAnswers = {1:0}
+  let score = 0
+
+  Object.keys(correctAnswers).forEach((qId)=>{
+    if(selectedAnswer[qId] === correctAnswers[qId]){
+      score++
+    }
+  })
+
+  navigate("/nopbai", {
+    state: { score, total: questions.length }
+  })
 }
 
 return(
@@ -21,32 +45,44 @@ return(
 
 <NavbarUser/>
 
-<div style={{padding:"30px"}}>
+<div className="container mt-4">
 
-<h3>Bài thi: Demo</h3>
+<div className="card shadow rounded-4 p-4">
 
-<p>Câu hỏi 1:</p>
+<h4 className="mb-4">Bài thi: Demo</h4>
 
-<div style={{border:"1px solid #999",padding:"20px",marginBottom:"20px"}}>
-Nội dung câu hỏi
-</div>
+{questions.map((q,index)=>(
+  <div key={q.id} className="mb-4">
 
-<div style={{...answer, backgroundColor: selectedAnswer === 'a' ? '#e0f7fa' : 'white', cursor: 'pointer'}} onClick={() => handleAnswerClick('a')}>
-<input type="radio" name="answer" value="a" checked={selectedAnswer === 'a'} onChange={() => handleAnswerClick('a')} /> a)
-</div>
-<div style={{...answer, backgroundColor: selectedAnswer === 'b' ? '#e0f7fa' : 'white', cursor: 'pointer'}} onClick={() => handleAnswerClick('b')}>
-<input type="radio" name="answer" value="b" checked={selectedAnswer === 'b'} onChange={() => handleAnswerClick('b')} /> b)
-</div>
-<div style={{...answer, backgroundColor: selectedAnswer === 'c' ? '#e0f7fa' : 'white', cursor: 'pointer'}} onClick={() => handleAnswerClick('c')}>
-<input type="radio" name="answer" value="c" checked={selectedAnswer === 'c'} onChange={() => handleAnswerClick('c')} /> c)
-</div>
-<div style={{...answer, backgroundColor: selectedAnswer === 'd' ? '#e0f7fa' : 'white', cursor: 'pointer'}} onClick={() => handleAnswerClick('d')}>
-<input type="radio" name="answer" value="d" checked={selectedAnswer === 'd'} onChange={() => handleAnswerClick('d')} /> d)
-</div>
+    <p><b>Câu {index+1}:</b></p>
 
-<br/>
+    <div className="border rounded-3 p-3 mb-3">
+      {q.content}
+    </div>
 
-<button onClick={nopBai} style={submitBtn}>
+    {q.answers.map((ans,i)=>(
+      <div 
+        key={i}
+        className={`form-check border rounded-3 p-2 mb-2 ${selectedAnswer[q.id]===i ? "bg-info-subtle border-primary" : ""}`}
+        onClick={()=>handleSelect(q.id,i)}
+        style={{cursor:"pointer"}}
+      >
+        <input 
+          type="radio"
+          className="form-check-input"
+          checked={selectedAnswer[q.id]===i}
+          readOnly
+        />
+        <label className="form-check-label ms-2">
+          {ans}
+        </label>
+      </div>
+    ))}
+
+  </div>
+))}
+
+<button className="btn btn-danger rounded-pill px-4" onClick={nopBai}>
 Nộp bài
 </button>
 
@@ -54,20 +90,10 @@ Nộp bài
 
 </div>
 
+</div>
+
 )
 
-}
-
-const answer={
-border:"1px solid #999",
-padding:"10px"
-}
-
-const submitBtn={
-background:"#d66c4c",
-color:"white",
-border:"none",
-padding:"10px 20px"
 }
 
 export default LamBai
