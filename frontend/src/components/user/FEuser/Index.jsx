@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import hinh1 from "./hinh1.jpg";
+import hinh2 from "./hinh2.jpg";
 
 function Index() {
   const navigate = useNavigate();
@@ -33,28 +35,28 @@ function Index() {
           </button>*/}
         </div>
 
-        {/* Hình 
+         
         <div className="col-md-6 text-center">
           <img
-            src="/stu1.jpg"
-            alt="stu"
+            src={hinh1}
+            alt=""
             className="img-fluid rounded shadow"
             style={{ maxHeight: "350px" }}
           />
-        </div>*/}
+        </div>
 
       </div>
 
-      {/* Hình dưới 
+       
       <div className="row mt-5 px-5">
         <div className="col-md-6">
           <img
-            src="/stu2.jpg"
-            alt="stu"
+            src={hinh2}
+            alt=""
             className="img-fluid rounded shadow"
           />
         </div>
-      </div>*/}
+      </div>
 
     </div>
   );
