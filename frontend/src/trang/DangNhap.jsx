@@ -9,11 +9,11 @@ const [mssv, setMssv] = useState("");
 const [password, setPassword] = useState("");
 const [error, setError] = useState("");
 const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com/api';
+
 const login = async () => {
     setError(""); 
     
     try {
-      
       const response = await fetch(`${API_BASE_URL}/login`, {
         method: "POST",
         headers: {
@@ -26,11 +26,8 @@ const login = async () => {
       const data = await response.json();
 
       if (response.ok && data.status === "success") {
-       
         localStorage.setItem("user", JSON.stringify(data.data));
         localStorage.setItem("token", data.token);
-        
-        
         navigate("/trangchu");
       } else {
         setError(data.message || "Đăng nhập thất bại");
@@ -42,10 +39,9 @@ const login = async () => {
   };
 
 return(
-
 <div className="bg-light vh-100 text-center">
 
-{/* Logo */}
+
 <img 
 src="/img/hinhSTU.png"
 alt=""
@@ -56,7 +52,7 @@ style={{width:"80px", marginTop:"60px"}}
 Phòng công tác sinh viên STU
 </h3>
 
-{/* Form */}
+
 <div 
 className="mx-auto mt-4 p-4 shadow"
 style={{
@@ -66,13 +62,17 @@ style={{
   border:"1px solid #555"
 }}
 >
+{error && <div className="alert alert-danger p-2 mb-3">{error}</div>}
 
 <label className="d-block text-start fs-5 mb-2">
 Tài khoản
 </label>
 
+
 <input 
 className="form-control mb-3"
+value={mssv}
+onChange={(e) => setMssv(e.target.value)}
 style={{
   background:"#cfe3e6",
   border:"none",
@@ -84,9 +84,12 @@ style={{
 Mật khẩu
 </label>
 
+
 <input 
 type="password"
 className="form-control mb-3"
+value={password}
+onChange={(e) => setPassword(e.target.value)}
 style={{
   background:"#cfe3e6",
   border:"none",
@@ -108,9 +111,7 @@ onClick={login}
 </div>
 
 </div>
-
 )
-
 }
 
 export default DangNhap
