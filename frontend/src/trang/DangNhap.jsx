@@ -8,10 +8,12 @@ const navigate = useNavigate()
 const [mssv, setMssv] = useState("");
 const [password, setPassword] = useState("");
 const [error, setError] = useState("");
+const [loading, setLoading] = useState(false);
 const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com/api';
 
 const login = async () => {
     setError(""); 
+    setLoading(true);
     
     try {
       const response = await fetch(`${API_BASE_URL}/login`, {
@@ -35,6 +37,8 @@ const login = async () => {
     } catch (err) {
       console.error(err);
       setError("Không thể kết nối đến server. Vui lòng thử lại sau.");
+    } finally{
+      setLoading(false);
     }
   };
 

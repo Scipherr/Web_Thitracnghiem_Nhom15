@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
-const UserDetail = () => {
-    const { id } = useParams(); 
+const UserDetail = ({ userId }) => {
+   const { id: paramId } = useParams();
+    const id = userId || paramId;
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,6 +14,7 @@ const UserDetail = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
+            if (!id) return;
             try {
                 const response = await axios.get(`${API_BASE_URL}/users/${id}`);
                 setUser(response.data.data);
@@ -45,9 +47,7 @@ const UserDetail = () => {
                             <p className="card-text"><strong>Mã Khoa:</strong> {user.facultyid}</p>
                             <p className="card-text"><strong>Mã Lớp:</strong> {user.classid}</p>
                             
-                            <Link to="/users" className="btn btn-outline-primary mt-3">
-                                ← Quay lại danh sách
-                            </Link>
+                          
                         </div>
                     </div>
                 </div>

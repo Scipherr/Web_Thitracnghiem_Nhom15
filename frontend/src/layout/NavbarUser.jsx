@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function NavbarUser() {
-    const handleLogout = () => {
-    
+      const navigate = useNavigate();
+     const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    
-    
     navigate("/");
   };
 
@@ -57,13 +56,9 @@ Tài khoản
 </Link>
 </li>
 <li className="nav-item">
-              <button 
-                className="btn btn-link nav-link" 
-                onClick={handleLogout}
-                style={{ textDecoration: 'none' }}
-              >
-                Đăng xuất
-              </button>
+              <button className="btn btn-link nav-link" onClick={handleLogout} style={{ textDecoration: 'none' }}>
+                    Đăng xuất
+                  </button>
             </li>
 </ul>
 
