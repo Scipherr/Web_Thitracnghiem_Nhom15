@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import hinhlogo from "./hinhSTU.png"
+
 function DangNhap(){
 
 const navigate = useNavigate()
@@ -14,7 +14,7 @@ return(
 
 {/* Logo */}
 <img 
-src={hinhlogo} 
+src="/img/hinhSTU.png"
 alt=""
 style={{width:"80px", marginTop:"60px"}}
 />
