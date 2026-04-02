@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
-import Index from "./components/user/FEuser/Index";
-import TrangChu from "./components/user/FEuser/TrangChu";
+import Index from "./trang/Index";
+import TrangChu from "./trang/TrangChu";
 
-import KetQua from "./components/user/FEuser/KetQua";
-import TaiKhoan from "./components/user/FEuser/TaiKhoan";
-import DangNhap from "./components/user/FEuser/DangNhap";
-import LamBai from "./components/user/FEuser/LamBai";
-import NopBai from "./components/user/FEuser/NopBai";
+import KetQua from "./trang/KetQua";
+import TaiKhoan from "./trang/TaiKhoan";
+import DangNhap from "./trang/DangNhap";
+import LamBai from "./trang/LamBai";
+import NopBai from "./trang/NopBai";
 
 import UserList from "./components/UserList";
 import UserDetail from "./components/UserDetail";

@@ -1,4 +1,4 @@
-import NavbarUser from "./NavbarUser"
+import NavbarUser from "../layout/NavbarUser"
 
 function TrangChu(){
 

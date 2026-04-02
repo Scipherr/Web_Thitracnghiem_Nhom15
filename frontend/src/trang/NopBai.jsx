@@ -1,4 +1,4 @@
-import NavbarUser from "./NavbarUser"
+import NavbarUser from "../layout/NavbarUser"
 import { useLocation, useNavigate } from "react-router-dom"
 
 function NopBai(){
