@@ -1,12 +1,45 @@
 import { useNavigate } from "react-router-dom"
+import { useState } from "react";
 
 function DangNhap(){
 
 const navigate = useNavigate()
 
-const login = () =>{
-  navigate("/trangchu")
-}
+const [mssv, setMssv] = useState("");
+const [password, setPassword] = useState("");
+const [error, setError] = useState("");
+const API_BASE_URL = 'https://web-thitracnghiem-nhom15.onrender.com/api';
+const login = async () => {
+    setError(""); 
+    
+    try {
+      
+      const response = await fetch(`${API_BASE_URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ mssv, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.status === "success") {
+       
+        localStorage.setItem("user", JSON.stringify(data.data));
+        localStorage.setItem("token", data.token);
+        
+        
+        navigate("/trangchu");
+      } else {
+        setError(data.message || "Đăng nhập thất bại");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Không thể kết nối đến server. Vui lòng thử lại sau.");
+    }
+  };
 
 return(
 
