@@ -28,7 +28,7 @@ function TrangChu() {
 
           <p>
            
-            Chào mừng bạn <strong>{user ? `${user.last_name} ${user.first_name}` : ""}</strong> đến hệ thống thi trắc nghiệm STU
+            Chào mừng <strong>{user ? `${user.last_name} ${user.first_name}` : ""}</strong> đến hệ thống thi trắc nghiệm STU
           </p>
         </div>
       </div>
